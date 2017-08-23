@@ -17,7 +17,7 @@
 	tableName=testTable
 
 # use the configparser
-	cfile, err := configparse.NewConfigInstance(configFileName)
+	cfile, err := configparser.NewConfigInstance(configFileName)
 	if nil != err {
 		fmt.Println(err)
 		return
