@@ -1,4 +1,4 @@
-package Commtools
+package configparser
 
 import (
 	"bufio"
