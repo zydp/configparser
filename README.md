@@ -16,24 +16,38 @@
 	dbName=testDB
 	tableName=testTable
 
-# use the configparser
-	cfile, err := configparser.NewConfigInstance(configFileName)
-	if nil != err {
-		fmt.Println(err)
-		return
-	}
-	serverHost := cfile.GetStrConfItem("ServerInfo", "listenHost")
-	serverPort := cfile.GetIntegerConfItem("ServerInfo", "listenPort")
+# example
+	package main
 
-  
-# if you want to judge whether it is right, you can use it like this
-	serverHost := cfile.GetStrConfItem("ServerInfo", "listenHost")
-	if "" == serverHost {
-		fmt.Printf("No configuration items %s:%s\n", "ServerInfo", "listenHost" )
-		return
-	}
-	serverPort := cfile.GetStrConfItem("ServerInfo", "listenHost")
-	if serverHost<0 {
-		fmt.Printf("No configuration items %s:%s\n", "ServerInfo", "listenHost" )
-		return
+	import (
+		"fmt"
+		"github.com/daipingpax/configparser"
+	)
+
+	func main() {
+		cfile, err := configparser.NewConfigInstance("example.conf")
+		if nil != err {
+			fmt.Println(err)
+			return
+		}
+		fmt.Println(cfile.GetStrConfItem("ServerInfo", "listenHost"))
+		fmt.Println(cfile.GetIntegerConfItem("ServerInfo", "listenPort"))
+		cfile.SetItemValue("NewModule", "TestStr", "a new item")
+		cfile.SetItemValue("NewModule", "TestInt", 123)
+		cfile.SetItemValue("NewModule", "TestFloat", 456.78)
+		//cfile.SaveToFile("example.conf")		//auto rename the save file name is example.conf.new
+		err = cfile.SaveToFile("newfile") //auto add suffix -> newfile.conf
+		if nil != err {
+			fmt.Println(err)
+		}
+
+		cfile.DelItem("database", "tableName")
+		err = cfile.DelModule("NewModule")
+		if nil != err {
+			fmt.Println(err)
+		}
+		err = cfile.SaveToFile("newfile") //auto add suffix -> newfile.conf
+		if nil != err {
+			fmt.Println(err)
+		}
 	}
