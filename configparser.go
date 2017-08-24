@@ -215,9 +215,9 @@ func (cfile *configFile) SaveToFile(filename string) (err error) {
 			break
 		}
 		if i > 0 {
-			tmpFileName = fmt.Sprint(filename, ".new.", i)
+			tmpFileName = fmt.Sprint(tmpFileName, ".new.", i)
 		} else {
-			tmpFileName = fmt.Sprint(filename, ".new")
+			tmpFileName = fmt.Sprint(tmpFileName, ".new")
 		}
 	}
 	if !ok {
