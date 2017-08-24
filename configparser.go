@@ -136,7 +136,7 @@ func (cfile *configFile) dealFileContentByReader(fileReader *bufio.Reader) error
 			cfile.moduleCount_++
 		default:
 			sepIndex := strings.IndexByte(strLine, '=')
-			if sepIndex < 0 {
+			if sepIndex <= 0 {
 				continue
 			}
 			newModule[strings.Trim(strLine[:sepIndex], " ")] = strings.Trim(strLine[sepIndex+1:], " ")
