@@ -5,7 +5,7 @@
 	我的邮箱 daiping_zy@139.com
 	
 
-# in your command windows
+# in your command window
 
 	get get github.com/daipingpax/configparser
 	
