@@ -1,5 +1,9 @@
+
 # configparser
-	A tool used to read configuration files
+	一个简单配置文件读写模块,学习golang时用于练手。
+	如有不适，欢迎提建议。谢谢！
+	我的邮箱 daiping_zy@139.com
+	
 
 # in your command windows
 
