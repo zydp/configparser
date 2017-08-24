@@ -7,7 +7,7 @@
 
 # in your command window
 
-	get get github.com/daipingpax/configparser
+	go get github.com/daipingpax/configparser
 	
 # in your project
 
