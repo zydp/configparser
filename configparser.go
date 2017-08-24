@@ -119,6 +119,8 @@ func (cfile *configFile) dealFileContentByReader(fileReader *bufio.Reader) error
 			continue
 		}
 		switch strLine[0] {
+		case ';':
+			fallthrough
 		case '#':
 			continue
 		case '[':
