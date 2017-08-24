@@ -207,6 +207,7 @@ func (cfile *configFile) SaveToFile(filename string) (err error) {
 	if !strings.HasSuffix(tmpFileName, ".conf") {
 		tmpFileName += ".conf"
 	}
+	bakName := tmpFileName
 	var newfile *os.File = nil
 	var ok bool = false
 	for i := 0; i < 100; i++ {
@@ -215,9 +216,9 @@ func (cfile *configFile) SaveToFile(filename string) (err error) {
 			break
 		}
 		if i > 0 {
-			tmpFileName = fmt.Sprint(tmpFileName, ".new.", i)
+			tmpFileName = fmt.Sprint(bakName, ".new.", i)
 		} else {
-			tmpFileName = fmt.Sprint(tmpFileName, ".new")
+			tmpFileName = fmt.Sprint(bakName, ".new")
 		}
 	}
 	if !ok {
