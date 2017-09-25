@@ -7,12 +7,12 @@
 
 # in your command window
 
-	go get github.com/daipingpax/configparser
+	go get github.com/zydp/configparser
 	
 # in your project
 
 	import (
-	    "github.com/daipingpax/configparser"	
+	    "github.com/zydp/configparser"	
 	)
 	
 # the configuration file format like this 
@@ -35,7 +35,7 @@
 
 	import (
 	    "fmt"
-	    "github.com/daipingpax/configparser"
+	    "github.com/zydp/configparser"
 	)
 
 	func main() {
